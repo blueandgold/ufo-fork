@@ -75,14 +75,14 @@ class UserTest(base_test.BaseTest):
     for user in users:
       self.assertIn(user.to_dict(), user_list_output)
 
-  @patch.object(user, '_get_users_to_add')
-  def testAddUsersGetHandler(self, mock_render):
-    """Test the add users get handler returns _get_users_to_add's result."""
-    return_text = '<html>something here </html>'
-    mock_render.return_value = return_text
-    resp = self.client.get(flask.url_for('add_user'))
-
-    self.assertEquals(resp.data, return_text)
+#  @patch.object(user, '_get_users_to_add')
+#  def testAddUsersGetHandler(self, mock_render):
+#    """Test the add users get handler returns _get_users_to_add's result."""
+#    return_text = '<html>something here </html>'
+#    mock_render.return_value = return_text
+#    resp = self.client.get(flask.url_for('add_user'))
+#
+#    self.assertEquals(resp.data, return_text)
 
   @patch('flask.Response')
   @patch.object(oauth, 'getSavedCredentials')
